@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {StyleSheet, View , Text , TextInput, Button} from 'react-native';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import { StatusBar } from 'expo-status-bar';
@@ -9,7 +9,35 @@ IconEntypo.loadFont();
 
 
 export function Home() {
-  const[linguagem, setlinguagem] = React.useState('0')
+ /* const[linguagem, setlinguagem] = React.useState('0')*/
+  const[peso,setPeso]= React.useState(0.00);
+  const[altura, setAltura]= React.useState(0.00);
+  const[IMC, setIMC]= React.useState(0.00);
+  const[linguagem, setLinguagem]= React.useState(0.00);
+  var IMCconvert;
+  var result;
+
+  if (IMCconvert<=18.5) {
+   result = "BAIXO PESO";
+  }else if (IMCconvert>18.5 && IMCconvert<=24.9) {
+     result = "PESO SAUDÁVEL";
+  } else if (IMCconvert>=25 && IMCconvert<=29.9) {
+     result = "SOBREPESO";
+  } else if (IMCconvert>30) {
+    result = "OBESIDADE";
+  }
+
+
+
+
+  function calcularIMC(peso, altura){
+   IMCconvert = (peso/(altura*altura));
+
+    setIMC(IMCconvert);
+  }
+  
+
+
   return (
     <View style={styles.container}>
       <View style ={styles.duda}><StatusBar style="auto"/>
@@ -25,26 +53,37 @@ export function Home() {
 
       <View style={styles.resto}>
         <Text style={styles.restoS}><IconEntypo name="heart" size={40} color="#C71585"></IconEntypo>Digite as informações solicitadas</Text>
-        <TextInput style={styles.input} onChangeText={text => onChangeText("NADA")} value={"\tPeso"}></TextInput>
-        <TextInput style={styles.flor} onChangeText={text => onChangeText("NADA")} value={"\tAltura"}></TextInput>
+        <TextInput placeholder="Peso" keyboardType="numeric" style={styles.flor} onChangeText={coracao => setPeso
+        (coracao)} value={peso}></TextInput>
+
+        <TextInput placeholder="Altura" keyboardType="numeric" style={styles.flor} onChangeText={coracao2 => setAltura
+        (coracao2)} value={altura}></TextInput>
+
 
         <Picker
             selectedValue={linguagem}
             style={{height: 50, width: 402, borderColor:"#FF69B4", backgroundColor:"#dbdbdb", fontStyle:"italic", borderWidth: 1, marginVertical:15, fontSize:20, color:"#8f8f8f",}}
-            onValueChange={(itemValue, itemIndex) =>
-          setlinguagem({linguagem: itemValue})
-           }>
+            onValueChange={selected => setLinguagem(selected)}
+            value={linguagem}>
               <Picker.Item label="Escolha um item" value="0" />
-             <Picker.Item label="Criança" value="java" />
-             <Picker.Item label="Adulto" value="js" />
-             <Picker.Item label="Idoso" value="js" />
+             <Picker.Item label="Criança" value="Criança" />
+             <Picker.Item label="Adulto" value="Adulto" />
+             <Picker.Item label="Idoso" value="Idoso" />
           </Picker>
 
           <IconEntypo name="heart" size={25} color="#C71585"></IconEntypo>
-        <Button style={{marginTop:100 , height: 50, width: 402 }} title ="Aperte para calcular o seu IMC" color="#F08080" >/</Button>
+        <Button style={{marginTop:100 , height: 50, width: 402 }} title ="Aperte para calcular o seu IMC" color="#F08080" onPress={() => calcularIMC(peso,altura)}/> 
+        <View style={styles.fran1}>
+          <Text style={styles.fran}> {peso} {"\t"} {"\t"} {"\t"}{altura}</Text>
+            <Text style={styles.fran}>{IMC.toFixed(2)} </Text>
+            <Text>  {result} </Text>
+            
+    
+      </View>
+        </View>
+      </View>
 
-      </View>
-      </View>
+
 
   );
 }
@@ -130,4 +169,16 @@ const styles = StyleSheet.create({
     fontWeight: 50,
   },
 
+  fran:{
+        color: "#F5FFFA",
+        fontSize: 30,
+        alignSelf: 'center',
+        borderColor: 'gray', 
+        borderWidth: 1,
+        marginVertical:15,
+        borderColor:"#FF69B4",
+        backgroundColor: "#F08080",
+        height: 50,
+         width: 302,
+      }, 
 })
