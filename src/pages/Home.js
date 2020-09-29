@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   dudinha: {
     fontSize:38,
     fontStyle:"italic",
-    color:"	#C71585",
+    color:"#C71585",
   },
   
   lucifer: {
