@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {StyleSheet, View , Text , TextInput, Button} from 'react-native';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import { StatusBar } from 'expo-status-bar';
-import {Picker} from '@react-native-community/picker';
+import {Picker} from 'react-native';
 
 IconEntypo.loadFont();
 
@@ -43,16 +43,16 @@ export function Home() {
       <View style ={styles.duda}><StatusBar style="auto"/>
       <Text style={styles.dudinha}>ACADEMIA 4137 FITNESS</Text>
      
-      <Text style={styles.lucifer}> <IconEntypo name="heart" size={40} color="#C71585"></IconEntypo>AQUI VOCÊ VAI PODER CALCULAR O SEU ÍNDICE DE MASSA CALCULAR E VER O SEU PERFIL{"\n"}
+      <Text style={styles.lucifer}> <IconEntypo name="heart" size={20} color="#C71585"></IconEntypo>AQUI VOCÊ VAI PODER CALCULAR O SEU ÍNDICE DE MASSA CALCULAR E VER O SEU PERFIL{"\n"}{"\n"}
       
-      ENTÃO, VENHA PARA O APLICATIVO DA MELHOR ACADEMIA DA SUA REGIÃO.  <IconEntypo name="heart" size={40} color="#C71585"></IconEntypo></Text>
+      ENTÃO, VENHA PARA O APLICATIVO DA MELHOR ACADEMIA DA SUA REGIÃO.  <IconEntypo name="heart" size={20} color="#C71585"></IconEntypo></Text>
       </View>
 
 
 
 
       <View style={styles.resto}>
-        <Text style={styles.restoS}><IconEntypo name="heart" size={40} color="#C71585"></IconEntypo>Digite as informações solicitadas</Text>
+        <Text style={styles.restoS}><IconEntypo name="heart" size={25} color="#C71585"></IconEntypo>Digite as informações solicitadas</Text>
         <TextInput placeholder="Peso" keyboardType="numeric" style={styles.flor} onChangeText={coracao => setPeso
         (coracao)} value={peso}></TextInput>
 
@@ -62,7 +62,7 @@ export function Home() {
 
         <Picker
             selectedValue={linguagem}
-            style={{height: 50, width: 402, borderColor:"#FF69B4", backgroundColor:"#dbdbdb", fontStyle:"italic", borderWidth: 1, marginVertical:15, fontSize:20, color:"#8f8f8f",}}
+            style={{height: 50, width: 302,  borderColor:"#FF69B4", backgroundColor:"#dbdbdb", fontStyle:"italic", borderWidth: 1, marginVertical:15, fontSize:20, color:"#8f8f8f",}}
             onValueChange={selected => setLinguagem(selected)}
             value={linguagem}>
               <Picker.Item label="Escolha um item" value="0" />
@@ -72,9 +72,9 @@ export function Home() {
           </Picker>
 
           <IconEntypo name="heart" size={25} color="#C71585"></IconEntypo>
-        <Button style={{marginTop:100 , height: 50, width: 402 }} title ="Aperte para calcular o seu IMC" color="#F08080" onPress={() => calcularIMC(peso,altura)}/> 
+        <Button style={{marginTop:100 , height: 50, width: 302 }} title ="Aperte para calcular o seu IMC" color="#DB7093" onPress={() => calcularIMC(peso,altura)}/> 
         <View style={styles.fran1}>
-          <Text style={styles.fran}> {peso} {"\t"} {"\t"} {"\t"}{altura}</Text>
+          <Text style={styles.fran}> {peso} {"\t"} {"\t"}{altura}</Text>
             <Text style={styles.fran}>{IMC.toFixed(2)} </Text>
             <Text>  {result} </Text>
             
@@ -95,12 +95,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFC0CB',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    borderRadius: 10,
-    width: '50%',
+    borderRadius: 20,
+    width: '80%',
     height: '70%',
     alignSelf: 'center',
-    marginTop: 100,
-    padding: 50,
+    marginTop:30,
+    padding: 20,
   },
 
   duda: {
@@ -108,11 +108,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '25%',
     margin: 0,
-    padding:28,
+    padding:5,
     paddingTop:-10,
     justifyContent: 'center',
     alignItems:'center',
-    shadowOffset:{width:4,height:4},
+    shadowOffset:{width:3,height:3},
     shadowOpacity:0.4,
     shadowColor:"#DEDEDE",
     shadowRadius:4,
@@ -121,16 +121,16 @@ const styles = StyleSheet.create({
   },
 
   dudinha: {
-    fontSize:38,
+    fontSize:18,
     fontStyle:"italic",
     color:"#C71585",
   },
   
   lucifer: {
-    fontSize:15,
+    fontSize:13,
     fontStyle:"italic",
     alignSelf:'center',
-    color:"#DB7093"
+    color:"#C71585"
   },
 
   input: {
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
 
   flor: {
     height: 50,
-    width: 402,
+    width: 302,
     borderColor: 'gray', 
     borderWidth: 1,
     marginVertical:15,
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignSelf: 'center',
     color: "#C71585",
-    fontSize:30,
+    fontSize:20,
     fontWeight: "100",
   },
 
@@ -177,8 +177,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         marginVertical:15,
         borderColor:"#FF69B4",
-        backgroundColor: "#F08080",
+        backgroundColor: "#DB7093",
         height: 50,
-        width: 302,
+        width: 145,
       }, 
 })
