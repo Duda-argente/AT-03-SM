@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: "#C71585",
     fontSize:30,
-    fontWeight: 100,
+    fontWeight: "100",
   },
 
   fran:{
