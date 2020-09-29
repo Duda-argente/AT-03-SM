@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: "#C71585",
     fontSize:30,
-    fontWeight: 50,
+    fontWeight: 100,
   },
 
   fran:{
@@ -179,6 +179,6 @@ const styles = StyleSheet.create({
         borderColor:"#FF69B4",
         backgroundColor: "#F08080",
         height: 50,
-         width: 302,
+        width: 302,
       }, 
 })
