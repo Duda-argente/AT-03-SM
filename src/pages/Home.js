@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     fontSize:15,
     fontStyle:"italic",
     alignSelf:'center',
-    color:"	#DB7093"
+    color:"#DB7093"
   },
 
   input: {
